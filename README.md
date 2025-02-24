@@ -11,3 +11,7 @@ This macro reloads the active `.zmt` file whenever you modify ZBrush material se
 
 2. Once installed, you can find the macro under:
    - **Top Menu > Material > Reset Active Material**
+
+### Video Tutorial:
+
+[Watch the video tutorial](https://www.youtube.com/watch?v=PP0YS9GTkSA) for more details.
