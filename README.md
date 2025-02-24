@@ -14,4 +14,4 @@ This macro reloads the active `.zmt` file whenever you modify ZBrush material se
 
 ### Video Tutorial:
 
-[Watch the video tutorial](https://www.youtube.com/watch?v=PP0YS9GTkSA) for more details.
+[Watch the video tutorial](https://www.youtube.com/watch?v=_Cwn7mKdPi4) for more details.
