@@ -1,0 +1,69 @@
+//ZBrush Macro - Reset Active Material
+//Coded By fables alive games
+//https://fablesalive.gumroad.com
+//https://fablesalive.artstation.com
+
+[IButton, "Material:Reset Active Material", "Resets Active Material to Its Defaults",
+          
+    // [VarSet, variable1, "Hello"]
+    // [VarSet, variable2, "Dudes on one of Planet in uncountable universes"]
+    // [Note, [StrMerge, "Message: " , variable1 , " " , variable2, "!"]]
+    [VarDef, isMatFound,0]
+
+    [VarSet, matName, [IGetTitle, Material:ItemInfo]]
+    
+    [VarSet, cleanName, [StrExtract, matName, 0, [StrLength, matName] - 2]]
+    
+    //[VarSet, filePath, [StrMerge, "ZBRUSH_/ZData/Materials/Startup/", cleanName, ".ZMT"]]
+    //[Note, filePath]
+
+    [VarSet, filePath, [StrMerge, "ZBRUSH_/ZData/Materials/Startup/", cleanName, ".ZMT"]]
+
+    [If, [FileExists, filePath],
+        [FileNameSetNext,filePath][IPress,Material:Load]
+        [VarSet, isMatFound,1]
+        //[Note, [StrMerge,"File Exists: " , filePath]],
+        //[Note, [StrMerge,"File Not Exists: " , filePath]]
+    ]
+
+    //C:\Program Files\Maxon ZBrush 2025\ZData\
+    [VarSet, filePath, [StrMerge, "ZBRUSH_/ZData/", cleanName, ".ZMT"]]
+
+    [If, [FileExists, filePath],
+      [FileNameSetNext,filePath][IPress,Material:Load]
+      [VarSet, isMatFound,1]
+      //[Note, [StrMerge,"File Exists: " , filePath]],
+      //[Note, [StrMerge,"File Not Exists: " , filePath]]
+    ]
+
+    //C:\Program Files\Maxon ZBrush 2025\ZData\Materials\MatCap\
+
+    [VarSet, filePath, [StrMerge, "ZBRUSH_/ZData/Materials/MatCap/", cleanName, ".ZMT"]]
+
+    [If, [FileExists, filePath],
+      [FileNameSetNext,filePath][IPress,Material:Load]
+      [VarSet, isMatFound,1]
+      //[Note, [StrMerge,"File Exists: " , filePath]],
+      //[Note, [StrMerge,"File Not Exists: " , filePath]]
+    ]
+
+    //C:\Program Files\Maxon ZBrush 2025\ZData\Materials\RedshiftMaterials
+
+    
+    [VarSet, filePath, [StrMerge, "ZBRUSH_/ZData/Materials/RedshiftMaterials/", cleanName, ".ZMT"]]
+
+    [If, [FileExists, filePath],
+      [FileNameSetNext,filePath][IPress,Material:Load]
+      [VarSet, isMatFound,1]
+      //[Note, [StrMerge,"File Exists: " , filePath]],
+      //[Note, [StrMerge,"File Not Exists: " , filePath]]
+    ]
+
+    [VarDef, quote, [StrFromAsc,34]]
+
+    [If, isMatFound==0, 
+        [Note, [StrMerge, quote, cleanName,".zmt" ,quote, " not found in known ZBrush Directories.  It should be elsewhere"]]
+    ]
+    //C:\Program Files\Maxon ZBrush 2025\ZData\Materials\Startup\
+
+]
